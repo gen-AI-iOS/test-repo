@@ -1,82 +1,47 @@
 //
-//  TestAiViewController.swift
-//  AifulApp-staging
+//  ViewController.swift
+//  COPILOT
 //
-//  Created by YabeTatuki on 2024/08/20.
-//  Copyright © 2024 アイフル. All rights reserved.
+//  Created by YabeTatuki on 2024/08/21.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var cameraButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // cameraButtonのテキストをOpen Cameraに設定
+        cameraButton.setTitle("Open Camera", for: .normal)
     }
     
-    // API通信を行う
-    // 画面遷移する
-    // 遷移先でAPIのレスポンスを表示する
-    @IBAction func didTapButton(_ sender: Any) {
-        DispatchQueue.global().async {
-            self.fetchGithubUserInfo()
+    // cameraButtonが押された時の処理
+    @IBAction func cameraButtonTapped(_ sender: UIButton) {
+        // UIImagePickerControllerのインスタンスを作成
+        let picker = UIImagePickerController()
+        // カメラを起動
+        picker.sourceType = .camera
+        // デリゲートを設定
+        picker.delegate = self
+        // UIImagePickerControllerを表示
+        present(picker, animated: true, completion: nil)
+    }
+    // Delegate method after capturing image
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imageView.image = pickedImage
         }
+        // UIImagePickerControllerを閉じる
+        picker.dismiss(animated: true, completion: nil)
     }
     
-    func fetchGithubUserInfo() {
-        let url = URL(string: "https://api.github.com/users/gen-AI-iOS")!
-        // API通信中はインジケーターを表示する
-        // UIActivityIndicatorView.init(style:) must be used from main thread onlyを解決
-        let indicator = UIActivityIndicatorView(style: .large)
-        indicator.center = self.view.center
-        indicator.startAnimating()
-        DispatchQueue.main.async {
-            self.view.addSubview(indicator)
-        }
-        // API通信は3秒待つ
-        Thread.sleep(forTimeInterval: 3)
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("error: \(error)")
-                return
-            }
-            
-            guard let data = data else {
-                print("data is nil")
-                return
-            }
-            
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
-                let login = json["login"] as! String
-                let id = json["id"] as! Int
-                let url = json["url"] as! String
-                
-//                DispatchQueue.main.async {
-                    self.showUserInfo(login: login, id: id, url: url)
-//                }
-            } catch {
-                print("error: \(error)")
-            }
-        }
-        task.resume()
-        // API通信が終わったらインジケーターを非表示にする
-        DispatchQueue.main.async {
-            indicator.stopAnimating()
-            indicator.removeFromSuperview()
-        }
-    }
-    
-    func showUserInfo(login: String, id: Int, url: String) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
-        viewController.login = login
-        viewController.id = id
-        viewController.url = url
-        DispatchQueue.main.async {
-            self.present(viewController, animated: true, completion: nil)
-        }
+    // Delegate method for cancelling the image picker
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
     
 }
