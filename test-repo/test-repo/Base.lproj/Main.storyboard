@@ -23,31 +23,13 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="didTapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G76-Uz-YCv"/>
-                                    <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mpQ-ls-gas"/>
+                                    <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FLQ-vf-ofH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQi-wU-1Z5">
-                                <rect key="frame" x="0.0" y="59" width="393" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="Us8-DX-wj5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="XQi-wU-1Z5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bKo-Qs-aPd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XQi-wU-1Z5" secondAttribute="trailing" id="l5m-23-hTm"/>
-                            <constraint firstItem="XQi-wU-1Z5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qWa-NE-8rs"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="displayText" destination="XQi-wU-1Z5" id="X1o-Ti-YMZ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
