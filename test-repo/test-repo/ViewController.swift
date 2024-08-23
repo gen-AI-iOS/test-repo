@@ -1,9 +1,8 @@
 //
-//  TestAiViewController.swift
-//  AifulApp-staging
+//  ViewController.swift
+//  COPILOT
 //
-//  Created by YabeTatuki on 2024/08/20.
-//  Copyright © 2024 アイフル. All rights reserved.
+//  Created by YabeTatuki on 2024/08/21.
 //
 
 import UIKit
@@ -12,43 +11,55 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
-    // MARK: - Actions
-    // ボタンのタップ時の処理を追加
-    // メソッド名はdidTapButton
-    // randomメソッドを呼び出し、返却値が１０以上だったら「10以上です」とアラートを表示する
-    // それ以外は「10未満です」とアラートを表示する
-    // do-catchを使用してエラーハンドリングを行う
-    @IBAction func didTapButton(_ sender: Any) {
-        let number = random()
+    @IBAction func tapButton(_ sender: Any) {
+        // getRandomNumberが10以上だったらshowToastを処理する
+        // do-catch文で実装する
         do {
+            let number = try getRandomNumber()
             if number >= 10 {
-                showAlert(message: "10以上です")
+//                showAlert(message: "10以上")
+                showToast(message: "10以上")
             } else {
-                showAlert(message: "10未満です")
+//                showAlert(message: "10未満")
+                showToast(message: "10未満")
             }
         } catch {
-            showAlert(message: "エラーが発生しました")
+            // 例外処理を実装
+            print("例外発生")
         }
     }
     
-    // ランダムで１から１０の整数を返却する
-    // メソッド名はramdom
-    // 引数はなし
-    // 戻り値はInt型
-    func random() -> Int {
+    // ランダムで1~10の整数値を返却
+    func getRandomNumber() -> Int {
         return Int.random(in: 1...10)
     }
     
-    // アラートを表示する
-    // メソッド名はshowAlert
-    // 引数はmessage:String型
-    // 「Cannot find 'showAlert' in scop」のエラーを解決するようなメソッド
+    // アラートを表示する関数
     func showAlert(message: String) {
-        let alert = UIAlertController(title: "結果", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    // エラーToastを表示する関数
+    func showToast(message : String) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-300, width: 150, height: 135))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center;
+        toastLabel.font = .systemFont(ofSize: 12.0)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 }
