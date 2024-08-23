@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		406645472C7884C40077522E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406645462C7884C40077522E /* SecondViewController.swift */; };
+		4066454A2C78B9E90077522E /* DeviceInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 406645482C78B9E90077522E /* DeviceInfoCell.xib */; };
+		4066454B2C78B9E90077522E /* DeviceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406645492C78B9E90077522E /* DeviceInfoCell.swift */; };
 		40718AE42C78526300EA6B9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40718AE32C78526300EA6B9B /* AppDelegate.swift */; };
 		40718AE62C78526300EA6B9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40718AE52C78526300EA6B9B /* SceneDelegate.swift */; };
 		40718AE82C78526300EA6B9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40718AE72C78526300EA6B9B /* ViewController.swift */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		406645462C7884C40077522E /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		406645482C78B9E90077522E /* DeviceInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceInfoCell.xib; sourceTree = "<group>"; };
+		406645492C78B9E90077522E /* DeviceInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfoCell.swift; sourceTree = "<group>"; };
 		40718AE02C78526300EA6B9B /* test-repo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "test-repo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40718AE32C78526300EA6B9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40718AE52C78526300EA6B9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 		40718AE22C78526300EA6B9B /* test-repo */ = {
 			isa = PBXGroup;
 			children = (
+				406645492C78B9E90077522E /* DeviceInfoCell.swift */,
+				406645482C78B9E90077522E /* DeviceInfoCell.xib */,
 				40718AE32C78526300EA6B9B /* AppDelegate.swift */,
 				40718AE52C78526300EA6B9B /* SceneDelegate.swift */,
 				40718AE72C78526300EA6B9B /* ViewController.swift */,
@@ -131,6 +137,7 @@
 				40718AF02C78526500EA6B9B /* LaunchScreen.storyboard in Resources */,
 				40718AED2C78526500EA6B9B /* Assets.xcassets in Resources */,
 				40718AEB2C78526300EA6B9B /* Main.storyboard in Resources */,
+				4066454A2C78B9E90077522E /* DeviceInfoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +150,7 @@
 			files = (
 				406645472C7884C40077522E /* SecondViewController.swift in Sources */,
 				40718AE82C78526300EA6B9B /* ViewController.swift in Sources */,
+				4066454B2C78B9E90077522E /* DeviceInfoCell.swift in Sources */,
 				40718AE42C78526300EA6B9B /* AppDelegate.swift in Sources */,
 				40718AE62C78526300EA6B9B /* SceneDelegate.swift in Sources */,
 			);
