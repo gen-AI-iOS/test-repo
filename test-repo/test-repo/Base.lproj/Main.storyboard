@@ -23,30 +23,13 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="didTapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gXt-ci-9uK"/>
+                                    <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0i4-7m-H5c"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTH-rd-bIY">
-                                <rect key="frame" x="0.0" y="59" width="393" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="5Nm-hl-3rq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aTH-rd-bIY" secondAttribute="trailing" id="BQf-GG-Y66"/>
-                            <constraint firstItem="aTH-rd-bIY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NJB-NC-XFs"/>
-                            <constraint firstItem="aTH-rd-bIY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bhm-fR-GgB"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="displayText" destination="aTH-rd-bIY" id="Gxo-R4-1Vv"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
