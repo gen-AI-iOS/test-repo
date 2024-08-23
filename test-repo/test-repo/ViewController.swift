@@ -1,47 +1,82 @@
 //
-//  ViewController.swift
-//  COPILOT
+//  TestAiViewController.swift
+//  AifulApp-staging
 //
-//  Created by YabeTatuki on 2024/08/21.
+//  Created by YabeTatuki on 2024/08/20.
+//  Copyright © 2024 アイフル. All rights reserved.
 //
 
 import UIKit
+// 画像識別のためのライブラリ
+import Vision
+import CoreML
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var imageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // cameraButtonのテキストをOpen Cameraに設定
-        cameraButton.setTitle("Open Camera", for: .normal)
+        // buttonのテキストをSelect Imageにする
+        button.setTitle("Select Image", for: .normal)
+        // imageLAbelの行数を無限にする
+        imageLabel.numberOfLines = 0
+        
     }
     
-    // cameraButtonが押された時の処理
-    @IBAction func cameraButtonTapped(_ sender: UIButton) {
-        // UIImagePickerControllerのインスタンスを作成
+    @IBAction func selectImage(_ sender: Any) {
         let picker = UIImagePickerController()
-        // カメラを起動
-        picker.sourceType = .camera
-        // デリゲートを設定
+        picker.sourceType = .photoLibrary
         picker.delegate = self
-        // UIImagePickerControllerを表示
         present(picker, animated: true, completion: nil)
     }
-    // Delegate method after capturing image
+    // 画像選択後の処理
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            imageView.image = pickedImage
+        let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        imageView.image = selectedImage
+        
+        recognizeText(from: selectedImage)
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func recognizeText(from image: UIImage) {
+        // 画像からCIImageを生成
+        guard let ciImage = CIImage(image: image) else {
+            fatalError("Failed to convert UIImage to CIImage")
         }
-        // UIImagePickerControllerを閉じる
-        picker.dismiss(animated: true, completion: nil)
+        
+        // 画像からVNImageRequestHandlerを生成
+        let handler = VNImageRequestHandler(ciImage: ciImage)
+        
+        // テキスト認識リクエストを生成
+        let request = VNRecognizeTextRequest { (request, error) in
+            guard let observations = request.results as? [VNRecognizedTextObservation] else {
+                fatalError("Failed to get result")
+            }
+            
+            // 認識されたテキストを取得
+            var recognizedText = ""
+            for observation in observations {
+                guard let topCandidate = observation.topCandidates(1).first else {
+                    print("No candidate")
+                    continue
+                }
+                recognizedText += topCandidate.string + "\n"
+            }
+            
+            // 認識されたテキストをラベルに表示
+            DispatchQueue.main.async {
+                self.imageLabel.text = recognizedText
+            }
+        }
+        
+        // テキスト認識リクエストを実行
+        do {
+            try handler.perform([request])
+        } catch {
+            print("Failed to perform request")
+        }
     }
-    
-    // Delegate method for cancelling the image picker
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
 }

@@ -28,23 +28,36 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="cameraButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f4S-u9-eAm"/>
+                                    <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q0v-tQ-jXh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bh8-qv-PFW">
+                                <rect key="frame" x="0.0" y="473.33333333333326" width="393" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="IY6-c7-VVa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="W3u-PA-TU1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3Q0-0g-Lle"/>
                             <constraint firstItem="uxS-uK-OJZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="G7c-5K-jED"/>
+                            <constraint firstItem="bh8-qv-PFW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Mcl-Pm-Kge"/>
                             <constraint firstItem="uxS-uK-OJZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="S1L-eW-9N7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uxS-uK-OJZ" secondAttribute="trailing" id="UWU-cJ-nB7"/>
                             <constraint firstItem="W3u-PA-TU1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b69-1N-VpM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bh8-qv-PFW" secondAttribute="trailing" id="kCa-SC-735"/>
+                            <constraint firstItem="bh8-qv-PFW" firstAttribute="top" secondItem="W3u-PA-TU1" secondAttribute="bottom" constant="30" id="lp0-MQ-bxE"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cameraButton" destination="W3u-PA-TU1" id="c2l-97-xOS"/>
-                        <outlet property="imageView" destination="uxS-uK-OJZ" id="KFT-ia-5wH"/>
+                        <outlet property="button" destination="W3u-PA-TU1" id="9FF-je-YgD"/>
+                        <outlet property="imageLabel" destination="bh8-qv-PFW" id="w6X-uQ-x2E"/>
+                        <outlet property="imageView" destination="uxS-uK-OJZ" id="gam-Pv-clX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
