@@ -25,7 +25,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="cameraButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rF8-15-Hvi"/>
+                                    <action selector="selectButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3eX-x8-ACn"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Noa-Li-74w">
@@ -34,21 +34,34 @@
                                     <constraint firstAttribute="height" constant="300" id="Sc7-m5-amm"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAu-ur-dTh">
+                                <rect key="frame" x="0.0" y="464" width="393" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="OwS-y2-a7O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="oYE-ii-AXg" firstAttribute="top" secondItem="Noa-Li-74w" secondAttribute="bottom" constant="20" id="2tv-aG-yi9"/>
                             <constraint firstItem="oYE-ii-AXg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IPe-v9-tpF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tAu-ur-dTh" secondAttribute="trailing" id="Umu-hw-oEG"/>
                             <constraint firstItem="Noa-Li-74w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WCa-PI-96s"/>
                             <constraint firstItem="Noa-Li-74w" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XAE-7W-Mec"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Noa-Li-74w" secondAttribute="trailing" id="ZG8-Ku-Bov"/>
+                            <constraint firstItem="tAu-ur-dTh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fjo-ba-3mt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oYE-ii-AXg" secondAttribute="trailing" id="gTD-ri-cv3"/>
+                            <constraint firstItem="tAu-ur-dTh" firstAttribute="top" secondItem="oYE-ii-AXg" secondAttribute="bottom" constant="50" id="sHP-tG-eC1"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cameraButton" destination="oYE-ii-AXg" id="uzY-aZ-k2X"/>
-                        <outlet property="imageView" destination="Noa-Li-74w" id="zMV-Vc-CjX"/>
+                        <outlet property="imageLabel" destination="tAu-ur-dTh" id="jl1-P8-h6b"/>
+                        <outlet property="imageView" destination="Noa-Li-74w" id="KMa-Qu-mXe"/>
+                        <outlet property="selectButton" destination="oYE-ii-AXg" id="Exb-Fb-ThB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
