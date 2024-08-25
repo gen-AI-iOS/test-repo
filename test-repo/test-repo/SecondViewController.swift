@@ -9,19 +9,12 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
-    @IBOutlet weak var loginLabel: UILabel!
-    
-    var login: String?
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        loginLabel.text = login
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        // 背景を赤にする
+        self.view.backgroundColor = UIColor.red
     }
     
 

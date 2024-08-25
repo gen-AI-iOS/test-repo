@@ -18,21 +18,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYE-ii-AXg">
-                                <rect key="frame" x="159" y="408.66666666666669" width="75" height="35"/>
+                                <rect key="frame" x="0.0" y="379" width="393" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="WOV-Lf-mcG"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KY3-y3-SyF"/>
+                                    <action selector="cameraButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rF8-15-Hvi"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Noa-Li-74w">
+                                <rect key="frame" x="0.0" y="59" width="393" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Sc7-m5-amm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oYE-ii-AXg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hW3-Mk-rDr"/>
-                            <constraint firstItem="oYE-ii-AXg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mxz-Er-w4N"/>
+                            <constraint firstItem="oYE-ii-AXg" firstAttribute="top" secondItem="Noa-Li-74w" secondAttribute="bottom" constant="20" id="2tv-aG-yi9"/>
+                            <constraint firstItem="oYE-ii-AXg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IPe-v9-tpF"/>
+                            <constraint firstItem="Noa-Li-74w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WCa-PI-96s"/>
+                            <constraint firstItem="Noa-Li-74w" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XAE-7W-Mec"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Noa-Li-74w" secondAttribute="trailing" id="ZG8-Ku-Bov"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oYE-ii-AXg" secondAttribute="trailing" id="gTD-ri-cv3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="oYE-ii-AXg" id="uzY-aZ-k2X"/>
+                        <outlet property="imageView" destination="Noa-Li-74w" id="zMV-Vc-CjX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
