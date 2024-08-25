@@ -22,30 +22,17 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MnE-wO-S19"/>
+                                    <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KY3-y3-SyF"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qTa-62-JKX">
-                                <rect key="frame" x="0.0" y="473.66666666666674" width="393" height="300"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="dRZ-wq-vQ7"/>
-                                </constraints>
-                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qTa-62-JKX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Zcg-OP-0Nc"/>
                             <constraint firstItem="oYE-ii-AXg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hW3-Mk-rDr"/>
-                            <constraint firstItem="qTa-62-JKX" firstAttribute="top" secondItem="oYE-ii-AXg" secondAttribute="bottom" constant="30" id="irH-Ap-m5n"/>
                             <constraint firstItem="oYE-ii-AXg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mxz-Er-w4N"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qTa-62-JKX" secondAttribute="trailing" id="wwo-dK-Mn2"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="displayTableView" destination="qTa-62-JKX" id="pfo-09-Pd7"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -58,10 +45,28 @@
                     <view key="view" contentMode="scaleToFill" id="Ifb-cF-vZB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Lm-ax-QpS">
+                                <rect key="frame" x="46.666666666666657" y="415.66666666666669" width="300" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="xnx-rK-BAT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="uDT-Kd-lYa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Lm-ax-QpS" firstAttribute="centerY" secondItem="Ifb-cF-vZB" secondAttribute="centerY" id="DUK-xZ-cT3"/>
+                            <constraint firstItem="5Lm-ax-QpS" firstAttribute="centerX" secondItem="Ifb-cF-vZB" secondAttribute="centerX" id="L6e-Vl-ii9"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qcZ-ah-cLq"/>
+                    <connections>
+                        <outlet property="loginLabel" destination="5Lm-ax-QpS" id="HKW-CY-hrS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aaA-iW-4l8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
