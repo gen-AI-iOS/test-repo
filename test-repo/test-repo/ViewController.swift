@@ -8,15 +8,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
     }
     
-    @IBAction func didTapButton(_ sender: Any) {
-        // ボタンのタップ時にダイアログを表示する処理を追加
+    @IBAction func tapButton(_ sender: Any) {
+         // Buttonタップ時にダイアログを表示する処理
         let alert = UIAlertController(title: "タイトル", message: "メッセージ", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(defaultAction)
         present(alert, animated: true, completion: nil)
     }
+    
 }
