@@ -8,21 +8,24 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var bioLabel: UILabel!
-    
-    var login: String?
-    var id: Int?
-    var url: String?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
-        // ユーザー情報を表示する
-        nameLabel.text = login
-        
+        // 背景を赤にする
+        self.view.backgroundColor = UIColor.red
     }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

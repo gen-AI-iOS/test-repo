@@ -23,7 +23,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yoU-mE-q7w"/>
+                                    <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uEC-x4-MEr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -42,27 +42,10 @@
                     <view key="view" contentMode="scaleToFill" id="Ifb-cF-vZB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zmb-So-45D">
-                                <rect key="frame" x="0.0" y="415.66666666666669" width="393" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="uDT-Kd-lYa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Zmb-So-45D" firstAttribute="centerY" secondItem="Ifb-cF-vZB" secondAttribute="centerY" id="4vu-K9-I0H"/>
-                            <constraint firstItem="uDT-Kd-lYa" firstAttribute="trailing" secondItem="Zmb-So-45D" secondAttribute="trailing" id="CYV-us-I2J"/>
-                            <constraint firstItem="Zmb-So-45D" firstAttribute="leading" secondItem="uDT-Kd-lYa" secondAttribute="leading" id="M7s-K0-112"/>
-                            <constraint firstItem="Zmb-So-45D" firstAttribute="centerX" secondItem="Ifb-cF-vZB" secondAttribute="centerX" id="ijg-l7-Rfl"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qcZ-ah-cLq"/>
-                    <connections>
-                        <outlet property="nameLabel" destination="Zmb-So-45D" id="zNE-lP-RHb"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aaA-iW-4l8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
