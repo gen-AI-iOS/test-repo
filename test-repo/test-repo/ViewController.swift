@@ -6,65 +6,71 @@
 //
 
 import UIKit
-// 画像認識のためのライブラリ
-import CoreML
-import Vision
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class ViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var selectButton: UIButton!
-    @IBOutlet weak var imageLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
+    
+    // タイマーの変数
+    var timer: Timer?
+    // ストップ時点での経過時点を保持するtimeInterval
+    var stopTime = TimeInterval()
+    // ストップ前のtimeInterval
+    var startTime = TimeInterval()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        // selectButtonのテキストをSelect Imageにする
-        selectButton.setTitle("Select Image", for: .normal)
-        // imageLabelを全行表示する
-        imageLabel.numberOfLines = 0
+        // startButtonのラベルをStartのする
+        startButton.setTitle("Start", for: .normal)
+        // resetButtonのラベルをResetのする
+        resetButton.setTitle("Reset", for: .normal)
+        // timerLabelのラベルを00:00:00にする
+        self.timerLabel.text = "00:00:00"
+        // timerLabelの色を赤色にする
+        // timerLabelの太さをBoldにする
+        self.timerLabel.textColor = UIColor.red
+        self.timerLabel.font = UIFont.boldSystemFont(ofSize: 50)
+        // timerLAbelを中央に配置する
+        self.timerLabel.textAlignment = NSTextAlignment.center
     }
 
-    @IBAction func selectButtonAction(_ sender: Any) {
-        // 画像選択
-        let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
-        picker.delegate = self
-        self.present(picker, animated: true, completion: nil)
-    }
-
-    // 画像選択後の処理
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.originalImage] as? UIImage {
-            imageView.image = image
-            imageToString(image: image)
-        }
-        self.dismiss(animated: true, completion: nil)
-    }
-    func imageToString(image: UIImage) {
-        
-        // 画像をCoreMLに渡す
-        guard let ciimage = CIImage(image: image) else {
-            fatalError("Unable to create ciimage")
-        }
-        let handler = VNImageRequestHandler(ciImage: ciimage, options: [:])
-        
-        // テキスト認識リクエストを作成
-        let request = VNRecognizeTextRequest { request, error in
-            guard let observations = request.results as? [VNRecognizedTextObservation] else {
-                fatalError("Unable to get observations from request")
-            }
-            // 認識された画像の中の全てのテキストを取得
-            let recognizedStrings = observations.compactMap({ $0.topCandidates(1).first?.string })
-            self.imageLabel.text = recognizedStrings.joined(separator: "\n")
-            print(recognizedStrings)
-            
-        }
-        do {
-            try handler.perform([request])
-        } catch {
-            print(error)
+    @IBAction func startTapped(_ sender: Any) {
+        // タイマーをスタートする
+        if self.timer == nil {
+            self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.timerUpdate), userInfo: nil, repeats: true)
+            // startButtonのラベルをStopのする
+            startButton.setTitle("Stop", for: .normal)
+        } else {
+            // タイマーをストップする
+            self.timer?.invalidate()
+            self.timer = nil
+            // startButtonのラベルをStartのする
+            startButton.setTitle("Start", for: .normal)
         }
     }
+    
+    @IBAction func resetTapped(_ sender: Any) {
+        // タイマーをリセットする
+        self.timer?.invalidate()
+        self.timer = nil
+        // timeIntervalの値を0にする
+        self.stopTime = 0
+        self.startTime = 0
+        // timerLabelのラベルを00:00:00にする
+        self.timerLabel.text = "00:00:00"
+        // startButtonのラベルをStartのする
+        startButton.setTitle("Start", for: .normal)
+    }
+    
+    // タイマーの更新
+    @objc func timerUpdate() {
+        // timeIntervalの値を1秒進める
+        self.stopTime = self.stopTime + 0.01
+        // timerLabelのラベルを更新する
+        self.timerLabel.text = String(format: "%02d:%02d:%02d", Int(self.stopTime) / 3600, (Int(self.stopTime) % 3600) / 60, Int(self.stopTime) % 60)
+    }
+    
 }
